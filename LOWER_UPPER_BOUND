@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+void upper_bound(int arr[], int n, int val)
+{
+    int i=0;
+    int j=n-1;
+    while(i<j)
+    {
+        int mid = (i+j)/2;
+        if(arr[mid]<=val)
+        {
+            i=mid+1;
+        }
+        else{
+            j=mid;
+        }
+    }
+    cout<<"upper_bound "<<val<<" "<<arr[i]<<endl;
+}
+void lower_bound(int arr[], int n, int val)
+{
+  int i=0;
+  int j=n-1;
+  while(i<j)
+  {
+      int mid= (i+j)/2;
+      if(arr[mid]<val)
+      {
+          i=mid+1;
+      }
+      else{
+           j=mid;
+      }
+  }
+  cout<<"lower_bound "<<val<<" "<<arr[j]<<endl;
+}
+int main() {
+    int arr[] = { 10, 20, 30, 40, 50 };
+    lower_bound(arr,5,40);
+    upper_bound(arr,5,40);
+    
+}
+//////////////////// TC O(LOG(N)) SC O(1)
